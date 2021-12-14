@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,31 +7,189 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/iv_tile1"
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-24dp"
-        android:src="@drawable/tile"/>
-    <ImageView
-        android:id="@+id/iv_tile2"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/iv_tile1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-24dp"
+            android:src="@drawable/tile"/>
+        <ImageView
+            android:id="@+id/iv_tile2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-48dp"
+            android:src="@drawable/tile"/>
+        <ImageView
+            android:id="@+id/iv_tile3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-48dp"
+            android:src="@drawable/tile"/>
+        <ImageView
+            android:id="@+id/iv_tile4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-28dp"
+            android:src="@drawable/subtile"/>
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-48dp"
-        android:src="@drawable/tile"/>
-    <ImageView
-        android:id="@+id/iv_tile3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-48dp"
-        android:src="@drawable/tile"/>
-    <ImageView
-        android:id="@+id/iv_tile4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-28dp"
-        android:src="@drawable/subtile"/>
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="제한 시간"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="18dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="18dp">
+
+            <ImageView
+                android:id="@+id/iv_heart1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/heart"/>
+            <ImageView
+                android:id="@+id/iv_heart2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/heart"/>
+            <ImageView
+                android:id="@+id/iv_heart3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/heart"/>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_table1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/table"/>
+        <ImageView
+            android:id="@+id/iv_custom1"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:src="@drawable/person1"
+            app:layout_constraintBottom_toTopOf="@+id/iv_table1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="55dp"
+            android:layout_marginBottom="-50dp"/>
+
+        <ImageView
+            android:id="@+id/iv_table2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_table1"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/table"/>
+        <ImageView
+            android:id="@+id/iv_custom2"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:src="@drawable/person2"
+            app:layout_constraintBottom_toTopOf="@+id/iv_table2"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="70dp"
+            android:layout_marginBottom="-50dp"/>
+
+        <ImageView
+            android:id="@+id/iv_table3"
+            app:layout_constraintTop_toBottomOf="@+id/iv_table1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/table"/>
+        <ImageView
+            android:id="@+id/iv_custom3"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:src="@drawable/person3"
+            app:layout_constraintBottom_toTopOf="@+id/iv_table3"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="55dp"
+            android:layout_marginBottom="-50dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_table4"
+            app:layout_constraintTop_toBottomOf="@+id/iv_table2"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/table"/>
+        <ImageView
+            android:id="@+id/iv_custom4"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:src="@drawable/person4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/iv_table4"
+            android:layout_marginRight="60dp"
+            android:layout_marginBottom="-50dp"/>
+
+        <View
+            android:id="@+id/view_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:backgroundTint="#fff"
+            android:background="#fff"
+            android:layout_marginBottom="50dp"/>
+
+        <TextView
+            android:id="@+id/tv_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메뉴"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/view_white"/>
 
 
 
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
