@@ -36,8 +36,9 @@
             android:id="@+id/iv_tile4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-28dp"
-            android:src="@drawable/subtile"/>
+            android:layout_marginTop="-30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tile"/>
     </LinearLayout>
 
 
@@ -109,7 +110,7 @@
             android:layout_marginBottom="-50dp"/>
         <ImageView
             android:id="@+id/iv_bubble1"
-            android:layout_width="150dp"
+            android:layout_width="155dp"
             android:layout_height="100dp"
             android:src="@drawable/bubble"
             app:layout_constraintBottom_toTopOf="@+id/iv_custom1"
@@ -150,7 +151,7 @@
             android:layout_marginBottom="-50dp"/>
         <ImageView
             android:id="@+id/iv_bubble2"
-            android:layout_width="150dp"
+            android:layout_width="155dp"
             android:layout_height="100dp"
             android:src="@drawable/bubble"
             app:layout_constraintEnd_toEndOf="parent"
@@ -192,7 +193,7 @@
             />
         <ImageView
             android:id="@+id/iv_bubble3"
-            android:layout_width="150dp"
+            android:layout_width="155dp"
             android:layout_height="100dp"
             android:src="@drawable/bubble"
             app:layout_constraintStart_toStartOf="parent"
@@ -232,7 +233,7 @@
             android:layout_marginBottom="-50dp"/>
         <ImageView
             android:id="@+id/iv_bubble4"
-            android:layout_width="150dp"
+            android:layout_width="155dp"
             android:layout_height="100dp"
             android:src="@drawable/bubble"
             app:layout_constraintEnd_toEndOf="parent"
