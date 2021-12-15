@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 31
 
+    viewBinding{
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.example.rc_aos_game"
         minSdk 21
