@@ -9,6 +9,7 @@ import android.os.Message
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintSet
@@ -76,6 +77,7 @@ class MainActivity : AppCompatActivity() {
                     binding.tvLimitTime.text = "$second 초"
                 }else{
                     binding.tvLimitTime.text = "종료"
+                    // 실패 activity 띄우기
                 }
             }
         }
@@ -85,8 +87,6 @@ class MainActivity : AppCompatActivity() {
                 Thread.sleep(1000)
                 totalTime -=1
                 handler?.sendEmptyMessage(0)
-
-
             }
         }
 
@@ -96,130 +96,120 @@ class MainActivity : AppCompatActivity() {
                 if(serving[checkNum] == 0){
                     check[checkNum] = true
                 }
+
                 if(check[checkNum]){
-                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
-                    isSuccess += 1
+                    showSuccessImage(success)
                 }else{
-                    heart[heartnum].visibility = View.INVISIBLE // 생명 감소
-                    heartnum += 1
-
-                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
-                    isSuccess += 1
-
-                    if(heartnum == 2){
-                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
-                    }
+                    invisibleHeartImage(heart)
+                    showFailImage(fail)
+                    checkIfFail()
                 }
-                checkNum += 1
+                GameSuccess()
             }
 
             binding.ivCheesecake.setOnClickListener{
                 if(serving[checkNum] == 1){
                     check[checkNum] = true
                 }
+
                 if(check[checkNum]){
-                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
-                    isSuccess += 1
+                    showSuccessImage(success)
                 }else{
-                    heart[heartnum].visibility = View.INVISIBLE
-                    heartnum += 1
-
-                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
-                    isSuccess += 1
-
-                    if(heartnum == 2){
-                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
-                    }
+                    invisibleHeartImage(heart)
+                    showFailImage(fail)
+                    checkIfFail()
                 }
-                checkNum += 1
+                GameSuccess()
             }
             binding.ivHotdog.setOnClickListener{
                 if(serving[checkNum] == 2){
                     check[checkNum] = true
                 }
+
                 if(check[checkNum]){
-                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
-                    isSuccess += 1
+                    showSuccessImage(success)
                 }else{
-                    heart[heartnum].visibility = View.INVISIBLE
-                    heartnum += 1
-
-                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
-                    isSuccess += 1
-
-                    if(heartnum == 2){
-                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
-                    }
+                    invisibleHeartImage(heart)
+                    showFailImage(fail)
+                    checkIfFail()
                 }
-                checkNum += 1
+                GameSuccess()
             }
             binding.ivSpaghetti.setOnClickListener{
                 if(serving[checkNum] == 3){
                     check[checkNum] = true
                 }
+
                 if(check[checkNum]){
-                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
-                    isSuccess += 1
+                    showSuccessImage(success)
                 }else{
-                    heart[heartnum].visibility = View.INVISIBLE
-                    heartnum += 1
-
-                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
-                    isSuccess += 1
-
-                    if(heartnum == 2){
-                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
-                    }
+                    invisibleHeartImage(heart)
+                    showFailImage(fail)
+                    checkIfFail()
                 }
-                checkNum += 1
+                GameSuccess()
             }
             binding.ivSteak.setOnClickListener{
                 if(serving[checkNum] == 4){
                     check[checkNum] = true
                 }
+
                 if(check[checkNum]){
-                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
-                    isSuccess += 1
+                    showSuccessImage(success)
                 }else{
-                    heart[heartnum].visibility = View.INVISIBLE
-                    heartnum += 1
-
-                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
-                    isSuccess += 1
-
-                    if(heartnum == 2){
-                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
-                    }
+                    invisibleHeartImage(heart)
+                    showFailImage(fail)
+                    checkIfFail()
                 }
-                checkNum += 1
+                GameSuccess()
             }
             binding.ivSushi.setOnClickListener{
                 if(serving[checkNum] == 5){
                     check[checkNum] = true
                 }
+
                 if(check[checkNum]){
-                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
-                    isSuccess += 1
+                    showSuccessImage(success)
                 }else{
-                    heart[heartnum].visibility = View.INVISIBLE
-                    heartnum += 1
-
-                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
-                    isSuccess += 1
-
-                    if(heartnum == 2){
-                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
-                    }
+                    invisibleHeartImage(heart)
+                    showFailImage(fail)
+                    checkIfFail()
                 }
-                checkNum += 1
-
+                GameSuccess()
             }
         }
 
-
-
-
         setContentView(binding.root)
+    }
+
+    fun showSuccessImage(success: Array<ImageView>){
+        success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
+        isSuccess += 1
+    }
+
+    fun showFailImage(fail: Array<ImageView>){
+        fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
+        isSuccess += 1
+    }
+
+    fun invisibleHeartImage(heart: Array<ImageView>){
+        heart[heartnum].visibility = View.INVISIBLE
+        heartnum += 1
+    }
+
+    fun checkIfFail(){
+        if(heartnum == 2){
+            Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
+            // 실패 activity 띄우기
+        }
+    }
+
+    fun GameSuccess(){
+        checkNum += 1
+        if(checkNum == 7){
+            Toast.makeText(this, "Game Success", Toast.LENGTH_SHORT).show()
+            // 성공 activity 띄우기
+        }
     }
 
 }
