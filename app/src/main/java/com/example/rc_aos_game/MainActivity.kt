@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     var check = arrayOf(false, false, false, false, false, false, false)
     var checkNum = 0
 
+    var isSuccess = 0
+
     var menu = arrayOf("햄버거", "치즈\n케이크", "핫도그",
         "스파\n게티", "스테\n이크", "스시")
     var tv_menu = arrayOfNulls<Int>(7)
@@ -48,6 +50,12 @@ class MainActivity : AppCompatActivity() {
             binding.tvCustomer4, binding.tvCustomer5, binding.tvCustomer6, binding.tvCustomer7)
 
         var heart = arrayOf(binding.ivHeart1, binding.ivHeart2)
+
+        var success = arrayOf(binding.ivSuccess1, binding.ivSuccess2, binding.ivSuccess3,
+            binding.ivSuccess4, binding.ivSuccess5, binding.ivSuccess6, binding.ivSuccess7)
+        var fail = arrayOf(binding.ivFail1, binding.ivFail2, binding.ivFail3, binding.ivFail4,
+            binding.ivFail5, binding.ivFail6, binding.ivFail7)
+
 
 
         for(i in 0..6){ // 주문 menu
@@ -89,11 +97,15 @@ class MainActivity : AppCompatActivity() {
                     check[checkNum] = true
                 }
                 if(check[checkNum]){
-                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
+                    isSuccess += 1
                 }else{
-                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
-                    heart[heartnum].visibility = View.INVISIBLE
+                    heart[heartnum].visibility = View.INVISIBLE // 생명 감소
                     heartnum += 1
+
+                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
+                    isSuccess += 1
+
                     if(heartnum == 2){
                         Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
                     }
@@ -106,11 +118,15 @@ class MainActivity : AppCompatActivity() {
                     check[checkNum] = true
                 }
                 if(check[checkNum]){
-                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
+                    isSuccess += 1
                 }else{
-                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
                     heart[heartnum].visibility = View.INVISIBLE
                     heartnum += 1
+
+                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
+                    isSuccess += 1
+
                     if(heartnum == 2){
                         Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
                     }
@@ -122,11 +138,15 @@ class MainActivity : AppCompatActivity() {
                     check[checkNum] = true
                 }
                 if(check[checkNum]){
-                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
+                    isSuccess += 1
                 }else{
-                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
                     heart[heartnum].visibility = View.INVISIBLE
                     heartnum += 1
+
+                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
+                    isSuccess += 1
+
                     if(heartnum == 2){
                         Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
                     }
@@ -138,11 +158,15 @@ class MainActivity : AppCompatActivity() {
                     check[checkNum] = true
                 }
                 if(check[checkNum]){
-                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
+                    isSuccess += 1
                 }else{
-                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
                     heart[heartnum].visibility = View.INVISIBLE
                     heartnum += 1
+
+                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
+                    isSuccess += 1
+
                     if(heartnum == 2){
                         Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
                     }
@@ -154,11 +178,15 @@ class MainActivity : AppCompatActivity() {
                     check[checkNum] = true
                 }
                 if(check[checkNum]){
-                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
+                    isSuccess += 1
                 }else{
-                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
                     heart[heartnum].visibility = View.INVISIBLE
                     heartnum += 1
+
+                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
+                    isSuccess += 1
+
                     if(heartnum == 2){
                         Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
                     }
@@ -170,11 +198,15 @@ class MainActivity : AppCompatActivity() {
                     check[checkNum] = true
                 }
                 if(check[checkNum]){
-                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                    success[isSuccess].visibility = View.VISIBLE // 성공 이미지 띄우기
+                    isSuccess += 1
                 }else{
-                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
                     heart[heartnum].visibility = View.INVISIBLE
                     heartnum += 1
+
+                    fail[isSuccess].visibility = View.VISIBLE // 실패 이미지 띄우기
+                    isSuccess += 1
+
                     if(heartnum == 2){
                         Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
                     }
