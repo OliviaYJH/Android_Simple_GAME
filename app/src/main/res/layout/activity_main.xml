@@ -74,13 +74,6 @@
                 android:id="@+id/iv_heart2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginBottom="20dp"
-                android:rotation="90"
-                android:src="@drawable/heart"/>
-            <ImageView
-                android:id="@+id/iv_heart3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
 
                 android:rotation="90"
                 android:src="@drawable/heart"/>
@@ -223,6 +216,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:rotation="90"/>
                 <TextView
+                    android:id="@+id/tv_customer1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="치즈\n케이크"
@@ -250,6 +244,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:rotation="90"/>
                 <TextView
+                    android:id="@+id/tv_customer2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="햄버거"
@@ -276,6 +271,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:rotation="90"/>
                 <TextView
+                    android:id="@+id/tv_customer3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="핫도그"
@@ -302,6 +298,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:rotation="90"/>
                 <TextView
+                    android:id="@+id/tv_customer4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="스파\n게티"
@@ -328,6 +325,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:rotation="90"/>
                 <TextView
+                    android:id="@+id/tv_customer5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="스테\n이크"
@@ -354,6 +352,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:rotation="90"/>
                 <TextView
+                    android:id="@+id/tv_customer6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="스시"
@@ -380,6 +379,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:rotation="90"/>
                 <TextView
+                    android:id="@+id/tv_customer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="햄버거"

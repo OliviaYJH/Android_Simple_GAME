@@ -8,6 +8,9 @@ import android.os.Looper
 import android.os.Message
 import android.util.Log
 import android.view.MotionEvent
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintSet
 import com.example.rc_aos_game.databinding.ActivityMainBinding
 import java.util.*
@@ -16,27 +19,23 @@ import kotlin.concurrent.thread
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    var totalTime = 60
+    var totalTime = 30 // 30초
     var started = false
-    var serving = arrayOfNulls<Int>(12)
+
+    var serving = arrayOfNulls<Int>(7)
     var foods = arrayOf(R.drawable.burger, R.drawable.cheesecake, R.drawable.hotdog,
                             R.drawable.spaghetti, R.drawable.steak, R.drawable.sushi)
+    var check = arrayOf(false, false, false, false, false, false, false)
+    var checkNum = 0
 
-    var iv_customers = arrayOfNulls<Int>(12)
-    var customers = arrayOf(R.drawable.person1, R.drawable.person2, R.drawable.person3, R.drawable.person4,
-                                R.drawable.person5, R.drawable.person6, R.drawable.person7)
-
-    var menu = arrayOf("햄버거", "치즈 케이크", "핫도그",
-        "스파게티", "스테이크", "스시")
-    var tv_menu = arrayOfNulls<Int>(12)
+    var menu = arrayOf("햄버거", "치즈\n케이크", "핫도그",
+        "스파\n게티", "스테\n이크", "스시")
+    var tv_menu = arrayOfNulls<Int>(7)
 
     val random = Random()
-    var chances = 0 // 맞든 틀리든 수행한 횟수
-    var heart = 3 // 생명
-    var x: Float? = null
-    var y: Float? = null
-    var dx: Float? = null
-    var dy: Float? = null
+    var heartnum = 0
+
+
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -45,36 +44,18 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-        /*
-        for(i in 0..11){ // 주문 menu
+        var textViewMenu = arrayOf(binding.tvCustomer1, binding.tvCustomer2, binding.tvCustomer3,
+            binding.tvCustomer4, binding.tvCustomer5, binding.tvCustomer6, binding.tvCustomer7)
+
+        var heart = arrayOf(binding.ivHeart1, binding.ivHeart2)
+
+
+        for(i in 0..6){ // 주문 menu
             val num = random.nextInt(6)
-            serving[i] = num // 서빙할 음식 랜덤으로 12개 입력해놓기
+            serving[i] = num // 서빙할 음식 번호 저장
             tv_menu[i] = num // 말풍선에 나올 메뉴 명
+            textViewMenu[i].text = menu[tv_menu[i]!!]
         }
-
-        for(i in 0..11){ // 손님
-            val custom_num = random.nextInt(7)
-            iv_customers[i] = custom_num
-        }
-
-
-        // 1번 손님
-        binding.ivCustom1.setImageResource(customers[serving[0]!!])
-        binding.tvCustom1Menu.text = menu[tv_menu[0]!!]
-
-        // 2번 손님
-        binding.ivCustom2.setImageResource(customers[serving[1]!!])
-        binding.tvCustom2Menu.text = menu[tv_menu[1]!!]
-
-        // 3번 손님
-        binding.ivCustom3.setImageResource(customers[serving[3]!!])
-        binding.tvCustom3Menu.text = menu[tv_menu[2]!!]
-
-        // 4번 손님
-        binding.ivCustom4.setImageResource(customers[serving[4]!!])
-        binding.tvCustom4Menu.text = menu[tv_menu[3]!!]
-        */
-
 
 
 
@@ -100,35 +81,114 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+
+
+        if (checkNum<7){
+            binding.ivBurger.setOnClickListener{
+                if(serving[checkNum] == 0){
+                    check[checkNum] = true
+                }
+                if(check[checkNum]){
+                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
+                    heart[heartnum].visibility = View.INVISIBLE
+                    heartnum += 1
+                    if(heartnum == 2){
+                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                checkNum += 1
+            }
+
+            binding.ivCheesecake.setOnClickListener{
+                if(serving[checkNum] == 1){
+                    check[checkNum] = true
+                }
+                if(check[checkNum]){
+                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
+                    heart[heartnum].visibility = View.INVISIBLE
+                    heartnum += 1
+                    if(heartnum == 2){
+                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                checkNum += 1
+            }
+            binding.ivHotdog.setOnClickListener{
+                if(serving[checkNum] == 2){
+                    check[checkNum] = true
+                }
+                if(check[checkNum]){
+                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
+                    heart[heartnum].visibility = View.INVISIBLE
+                    heartnum += 1
+                    if(heartnum == 2){
+                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                checkNum += 1
+            }
+            binding.ivSpaghetti.setOnClickListener{
+                if(serving[checkNum] == 3){
+                    check[checkNum] = true
+                }
+                if(check[checkNum]){
+                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
+                    heart[heartnum].visibility = View.INVISIBLE
+                    heartnum += 1
+                    if(heartnum == 2){
+                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                checkNum += 1
+            }
+            binding.ivSteak.setOnClickListener{
+                if(serving[checkNum] == 4){
+                    check[checkNum] = true
+                }
+                if(check[checkNum]){
+                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
+                    heart[heartnum].visibility = View.INVISIBLE
+                    heartnum += 1
+                    if(heartnum == 2){
+                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                checkNum += 1
+            }
+            binding.ivSushi.setOnClickListener{
+                if(serving[checkNum] == 5){
+                    check[checkNum] = true
+                }
+                if(check[checkNum]){
+                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show()
+                    heart[heartnum].visibility = View.INVISIBLE
+                    heartnum += 1
+                    if(heartnum == 2){
+                        Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                checkNum += 1
+
+            }
+        }
+
+
+
+
         setContentView(binding.root)
     }
-
-
-    /*
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        if(event?.action == MotionEvent.ACTION_DOWN){
-            if(binding.ivBurger.callOnClick()) Log.d("clicked", "burger")
-            if(binding.ivCheesecake.callOnClick()) Log.d("clicked", "cheesecake")
-            x = event.getX()
-            y = event.getY()
-        }
-
-        if(event?.action == MotionEvent.ACTION_MOVE){
-            dx = event.getX() - x!!
-            dy = event.getY() - y!!
-
-            binding.ivBurger.x = binding.ivBurger.x + dx!!
-            binding.ivBurger.y = binding.ivBurger.y + dy!!
-
-            x = event.getX()
-            y = event.getY()
-        }
-
-
-
-        return super.onTouchEvent(event)
-    }*/
-
 
 }
 
