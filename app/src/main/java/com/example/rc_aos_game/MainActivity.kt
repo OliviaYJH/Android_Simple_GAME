@@ -1,10 +1,14 @@
 package com.example.rc_aos_game
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.util.Log
+import android.view.MotionEvent
+import androidx.constraintlayout.widget.ConstraintSet
 import com.example.rc_aos_game.databinding.ActivityMainBinding
 import java.util.*
 import kotlin.concurrent.thread
@@ -29,14 +33,19 @@ class MainActivity : AppCompatActivity() {
     val random = Random()
     var chances = 0 // 맞든 틀리든 수행한 횟수
     var heart = 3 // 생명
+    var x: Float? = null
+    var y: Float? = null
+    var dx: Float? = null
+    var dy: Float? = null
 
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-
+        /*
         for(i in 0..11){ // 주문 menu
             val num = random.nextInt(6)
             serving[i] = num // 서빙할 음식 랜덤으로 12개 입력해놓기
@@ -64,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         // 4번 손님
         binding.ivCustom4.setImageResource(customers[serving[4]!!])
         binding.tvCustom4Menu.text = menu[tv_menu[3]!!]
+        */
 
 
 
@@ -90,11 +100,38 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
-
-
-
-
-
         setContentView(binding.root)
     }
+
+
+    /*
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        if(event?.action == MotionEvent.ACTION_DOWN){
+            if(binding.ivBurger.callOnClick()) Log.d("clicked", "burger")
+            if(binding.ivCheesecake.callOnClick()) Log.d("clicked", "cheesecake")
+            x = event.getX()
+            y = event.getY()
+        }
+
+        if(event?.action == MotionEvent.ACTION_MOVE){
+            dx = event.getX() - x!!
+            dy = event.getY() - y!!
+
+            binding.ivBurger.x = binding.ivBurger.x + dx!!
+            binding.ivBurger.y = binding.ivBurger.y + dy!!
+
+            x = event.getX()
+            y = event.getY()
+        }
+
+
+
+        return super.onTouchEvent(event)
+    }*/
+
+
 }
+
+
+
+
