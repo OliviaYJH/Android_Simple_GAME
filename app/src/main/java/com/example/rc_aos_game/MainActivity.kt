@@ -1,6 +1,7 @@
 package com.example.rc_aos_game
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -19,9 +20,15 @@ import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        var again = false
+        var continueGame = false
+        var started = false
+        var checkhandler = false
+    }
+
     private lateinit var binding: ActivityMainBinding
     var totalTime = 30 // 30초
-    var started = false
 
     var serving = arrayOfNulls<Int>(7)
     var foods = arrayOf(R.drawable.burger, R.drawable.cheesecake, R.drawable.hotdog,
@@ -37,7 +44,6 @@ class MainActivity : AppCompatActivity() {
 
     val random = Random()
     var heartnum = 0
-
 
 
 
@@ -78,18 +84,18 @@ class MainActivity : AppCompatActivity() {
                 }else{
                     binding.tvLimitTime.text = "종료"
                     // 실패 activity 띄우기
+
                 }
             }
         }
         started = true
         thread(started){
-            while(true){
+            while(started){
                 Thread.sleep(1000)
                 totalTime -=1
                 handler?.sendEmptyMessage(0)
             }
         }
-
 
         if (checkNum<7){
             binding.ivBurger.setOnClickListener{
@@ -199,17 +205,72 @@ class MainActivity : AppCompatActivity() {
 
     fun checkIfFail(){
         if(heartnum == 2){
-            Toast.makeText(this, "game over", Toast.LENGTH_SHORT).show()
             // 실패 activity 띄우기
+            startActivity(Intent(this, FailActivity::class.java))
         }
     }
 
     fun GameSuccess(){
         checkNum += 1
         if(checkNum == 7){
-            Toast.makeText(this, "Game Success", Toast.LENGTH_SHORT).show()
             // 성공 activity 띄우기
+            startActivity(Intent(this, SuccessActivity::class.java))
         }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        if(again){
+            finish()
+            startActivity(Intent(this, MainActivity::class.java))
+            again = false
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // 시간 감소 멈추기
+        started = false
+        continueGame = true
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if(continueGame){
+            startActivity(Intent(this, OnPauseActivity::class.java))
+        }
+
+
+
+
+        if(checkhandler){
+            var handler = object:Handler(Looper.getMainLooper()){
+                override fun handleMessage(msg: Message){
+                    val second = String.format("%02d", totalTime%60)
+
+                    if(totalTime > 0){
+                        binding.tvLimitTime.text = "$second 초"
+                    }else{
+                        binding.tvLimitTime.text = "종료"
+                        // 실패 activity 띄우기
+
+                    }
+                }
+            }
+            started = true
+            thread(started){
+                while(started){
+                    Thread.sleep(1000)
+                    totalTime -= 1
+                    handler?.sendEmptyMessage(0)
+                }
+            }
+
+            checkhandler = false
+        }
+
+
     }
 
 }

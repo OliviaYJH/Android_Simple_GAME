@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SuccessActivity">
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_tile1"
+            android:layout_width="match_parent"
+            android:layout_height="410dp"
+            android:rotation="90"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tile" />
+
+        <ImageView
+            android:id="@+id/iv_tile2"
+            android:layout_width="match_parent"
+            android:layout_height="410dp"
+            android:scaleType="centerCrop"
+            android:rotation="90"
+            android:src="@drawable/tile"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:src="@drawable/balloons"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_success"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You Win!"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:rotation="90"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_again"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="다시하기"
+        android:rotation="90"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="220dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_success"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_finish"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="게임 끝내기"
+        android:rotation="90"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_success"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_again"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

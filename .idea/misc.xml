@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/RC_AOS/RC_AOS_GAME/app/src/main/res/layout/activity_delete.xml" value="0.36614583333333334" />
+        <entry key="..\:/RC_AOS/RC_AOS_GAME/app/src/main/res/layout/activity_first.xml" value="0.3" />
         <entry key="..\:/RC_AOS/RC_AOS_GAME/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/RC_AOS/RC_AOS_GAME/app/src/main/res/layout/activity_main2.xml" value="0.36614583333333334" />
+        <entry key="..\:/RC_AOS/RC_AOS_GAME/app/src/main/res/layout/activity_on_pause.xml" value="0.36614583333333334" />
+        <entry key="..\:/RC_AOS/RC_AOS_GAME/app/src/main/res/layout/activity_success.xml" value="0.3515625" />
       </map>
     </option>
   </component>

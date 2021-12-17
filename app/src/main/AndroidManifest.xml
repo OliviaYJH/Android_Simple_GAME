@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RC_AOS_GAME">
         <activity
+            android:name=".OnPauseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FirstActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ㄴ"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
