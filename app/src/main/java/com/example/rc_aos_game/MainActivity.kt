@@ -81,10 +81,9 @@ class MainActivity : AppCompatActivity() {
 
                 if(totalTime > 0){
                     binding.tvLimitTime.text = "$second 초"
-                }else{
-                    binding.tvLimitTime.text = "종료"
+                }else if(totalTime == 0){
                     // 실패 activity 띄우기
-
+                    startActivity(Intent(this@MainActivity, FailActivity::class.java))
                 }
             }
         }
@@ -241,9 +240,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, OnPauseActivity::class.java))
         }
 
-
-
-
         if(checkhandler){
             var handler = object:Handler(Looper.getMainLooper()){
                 override fun handleMessage(msg: Message){
@@ -271,6 +267,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onStop() {
+        super.onStop()
+        continueGame = false
     }
 
 }

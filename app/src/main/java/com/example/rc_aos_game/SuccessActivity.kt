@@ -17,9 +17,11 @@ class SuccessActivity : AppCompatActivity() {
         binding.btnAgain.setOnClickListener{
             finish()
             MainActivity.again = true
+            MainActivity.continueGame = false
         }
 
         binding.btnFinish.setOnClickListener{
+            MainActivity.continueGame = false
             ActivityCompat.finishAffinity(this)
             System.exit(0)
         }
