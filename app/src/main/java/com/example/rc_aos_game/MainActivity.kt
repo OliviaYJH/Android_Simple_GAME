@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
-    var totalTime = 30 // 30초
+    var totalTime = 20
 
     var serving = arrayOfNulls<Int>(7)
     var foods = arrayOf(R.drawable.burger, R.drawable.cheesecake, R.drawable.hotdog,
@@ -229,7 +229,6 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         // 시간 감소 멈추기
-        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show()
         started = false
         continueGame = true
     }
