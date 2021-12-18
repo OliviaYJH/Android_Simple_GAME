@@ -229,6 +229,7 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         // 시간 감소 멈추기
+        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show()
         started = false
         continueGame = true
     }
@@ -247,10 +248,9 @@ class MainActivity : AppCompatActivity() {
 
                     if(totalTime > 0){
                         binding.tvLimitTime.text = "$second 초"
-                    }else{
-                        binding.tvLimitTime.text = "종료"
+                    }else if(totalTime == 0){
                         // 실패 activity 띄우기
-
+                        startActivity(Intent(this@MainActivity, FailActivity::class.java))
                     }
                 }
             }
@@ -271,7 +271,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        continueGame = false
+        continueGame = true
     }
 
 }
